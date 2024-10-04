@@ -70,36 +70,36 @@ namespace Enumerations_in_Monogame
             // TODO: Add your update logic here
             if (fruitState == FruitState.Fresh)
             {
+                message = "Click left mouse to travel to the future.";
                 if (mouseState.LeftButton == ButtonState.Pressed)
                 {
-                    message = "Hit spacebar to travel to the future.";
                     fruitState = FruitState.Mouldy;
                 }
             }
             else if (fruitState == FruitState.Mouldy)
-            {
+            {                    
+                message = "Hit spacebar to travel to the future.";
                 if (keyboardState.IsKeyDown(Keys.Space))
                 {
-                    message = "Hit enter to travel to the future.";
                     fruitState = FruitState.ReallyMouldy;
                 }
             }
             else if (fruitState == FruitState.ReallyMouldy)
             {
+                message = "Hit enter to travel to the future.";
                 if (keyboardState.IsKeyDown(Keys.Enter))
                 {
-                    message = "Right click the mouse to travel to the past.";
                     fruitState = FruitState.Rotten;
                 }
             }
             else if (fruitState == FruitState.Rotten)
+            {
+                message = "Right click the mouse button to travel to the distant past.";
                 if (mouseState.RightButton == ButtonState.Pressed)
-                {
-                    message = "Left click the mouse to travel to the future.";
-                    fruitState = FruitState.Fresh;
-                }
-
-
+                    {
+                        fruitState = FruitState.Fresh;
+                    }
+            }   
             base.Update(gameTime);
         }
 
